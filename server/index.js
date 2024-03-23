@@ -1,10 +1,8 @@
 import React from 'react';
 import express from 'express';
 import ReactDOMServer from 'react-dom/server';
-import App from '../src/App';
-import { StaticRouter, Routes, Route } from 'react-router-dom';
-import CreateThread from '../src/pages/CreateThread';
-import ThreadDetail from '../src/pages/ThreadDetail';
+import Client from '../src/Client';
+import { StaticRouter } from 'react-router-dom';
 
 const app = express();
 const port = 9000;
@@ -13,11 +11,7 @@ app.get('/', (req, res) => {
   const context = {};
   const appHtml = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={context}>
-      <Routes>
-        <Route path={'/'} element={<App />} />
-        <Route path={'/thread/new'} element={<CreateThread />} />
-        <Route path={'/thread/:id'} element={<ThreadDetail />} />
-      </Routes>
+      <Client />
     </StaticRouter>
   );
 
