@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Header from './component/Header'
-import { Threads } from './component/Threads'
+import Threads from './component/Threads'
 
 function App(): JSX.Element {
   return (

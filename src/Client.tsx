@@ -1,20 +1,16 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import CreateThred from './pages/CreateThread'
-import ThreadDetail from './pages/ThreadDetail'
-import App from './App'
-import './client.css'
+import React from 'react';
+import { hydrate } from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
+import CreateThread from './pages/CreateThread';
+import ThreadDetail from './pages/ThreadDetail';
 
-const Client = (): JSX.Element => {
-  return (
+hydrate((
     <BrowserRouter>
-      <Routes>
-        <Route path={'/'} element={<App />}></Route>
-        <Route path={'/thread/new'} element={<CreateThred />}></Route>
-        <Route path={'/thread/:id'} element={<ThreadDetail />}></Route>
-      </Routes>
+        <Routes>
+            <Route path={'/'} element={<App />} />
+            <Route path={'/thread/new'} element={<CreateThread />} />
+            <Route path={'/thread/:id'} element={<ThreadDetail />} />
+        </Routes>
     </BrowserRouter>
-  )
-};
-
-export default Client;
+), document.querySelector('#app'));
