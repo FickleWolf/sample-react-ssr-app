@@ -1,20 +1,18 @@
 import React from 'react'
 import '../App.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Header = (): JSX.Element => {
-  const navigate = useNavigate()
+  console.log(process.env.REACT_APP_API_BASE_URL);
 
   return (
     <header>
-      <h1
+      <Link
+        to="/"
         className="logo-text"
-        onClick={() => {
-          navigate('/')
-        }}
       >
         掲示板
-      </h1>
+      </Link>
       <Link to="/thread/new" className="link">
         スレッドをたてる
       </Link>

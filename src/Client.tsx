@@ -5,12 +5,13 @@ import App from './App';
 import CreateThread from './pages/CreateThread';
 import ThreadDetail from './pages/ThreadDetail';
 
-hydrate((
+hydrate(
     <BrowserRouter>
         <Routes>
-            <Route path={'/'} element={<App />} />
-            <Route path={'/thread/new'} element={<CreateThread />} />
-            <Route path={'/thread/:id'} element={<ThreadDetail />} />
+            <Route path="/" element={<App />} />
+            <Route path="/thread/new" element={<CreateThread />} />
+            <Route path="/thread/:id" element={<ThreadDetail />} />
         </Routes>
-    </BrowserRouter>
-), document.querySelector('#app'));
+    </BrowserRouter>,
+    document.querySelector('#app')
+);

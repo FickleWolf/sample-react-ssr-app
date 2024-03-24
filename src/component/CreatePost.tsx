@@ -65,7 +65,7 @@ export const CreatePost = (props: any): JSX.Element => {
     <div className="create-post">
       <div className="create-post-body">
         <img
-          src="../icon/close_icon.svg"
+          src="/images/close_icon.svg"
           alt="close-icon"
           className="close-icon"
           onClick={() => setShowCreatePost(false)}

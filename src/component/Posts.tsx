@@ -92,7 +92,7 @@ export const Posts = (props: any) => {
           ) : (
             <>
               <img
-                src="../icon/post_icon.svg"
+                src="/images/post_icon.svg"
                 alt="post-icon"
                 className="post-icon"
                 onClick={() => setShowCreatePost(true)}

@@ -1,14 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = [
   {
     name: 'server',
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
+      extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     mode: "development",
     entry: './server/index.js',
@@ -79,16 +77,13 @@ module.exports = [
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'server.styles.css',
-      }),
+      })
     ],
   },
   {
     name: 'client',
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      alias: {
-        '@': path.resolve(__dirname, 'src')
-      }
+      extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     mode: "development",
     entry: './src/Client.tsx',
@@ -139,6 +134,9 @@ module.exports = [
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'client.styles.css',
+      }),
+      new webpack.DefinePlugin({
+        'process.env.REACT_APP_API_BASE_URL': JSON.stringify("https://railway.bulletinboard.techtrain.dev/"),
       }),
     ],
   },
